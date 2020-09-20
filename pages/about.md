@@ -4,10 +4,12 @@ title: O mnie
 permalink: /about/
 ---
 
-Od początku swojej kariery obracam się wokół ETLa. Wszystkie moje role były związane z programowaniem
+Mam na imię Tomasz i od początku swojej kariery obracam się wokół ETLa. Wszystkie moje role były związane z programowaniem
 baz danych i tworzeniem przepływów danych. Przez ponad 7 lat zrealizowałem projekty w branżach FMCG,
 telco, muzycznej oraz farmaceutycznej. W wolnym czasie lubię rozwiązać programistyczne kata lub przeczytać coś ciekawego.
 
+
+## Cele
 Postanowiłem zacząć pisać z kilku powodów:
 
 0. Jako cel nadrzędny przyjmuję propagowanie dobrych praktych programistycznych w świecie baz danych. Z rozmów i moich
@@ -27,3 +29,7 @@ technik oraz narzędzi. Ten blog ma mi pomóc w byciu lepszym w tym, co robię;
 2. Dołożenie swojej cegiełki do społeczności programistycznej. Czułbym nieokiełznaną radość, gdyby
 choć jedna osoba dzięki moim wytworom na tym blogu znalazła rozwiązanie swojego problemu
 lub polepszyła swoją sytuację; 
+
+
+## Kontakt
+[LinkedIn](https://www.linkedin.com/in/tomasz-kiap%C5%9Bnia-ab548714/)
