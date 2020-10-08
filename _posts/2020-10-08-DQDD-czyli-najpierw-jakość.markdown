@@ -13,7 +13,7 @@ bez mozolnego przeglądania wyników naszych funkcji czy procedur i liczenia na
 łut szczęścia, że akurat trafimy na wadliwy przypadek. 
 
 # Wszystko ma swoją cenę
-Koszt napisania testów jest porównywalny do jednorazowego stworzenia i wykonania testów manualnych. Tyle że część wykonawczą testów manualnych realizujemy
+Koszt napisania zautomatyzowanych testów jest porównywalny do jednorazowego stworzenia i wykonania testów manualnych. Tyle, że część wykonawczą testów manualnych realizujemy
 w czasie projektu przynajmniej kilkukrotnie. Zysk z automatomatyzacji testów jest więc ogromny, tym większy, im dłuższy jest projekt. 
 Pozwala też skrócić pętle sprzężenia zwrotnego od developmentu do wykrycia błędów i ich poprawy. Ułatwia to pracę, gdyż nie trzeba po tygodniu, kiedy zrobiło się
 już multum innych rzeczy, wracać do zadania o którym już się zapomniało, odświeżać sobie wiedzę i fixować nieszczęsny kod. 
@@ -41,7 +41,7 @@ przełożyć TDD. Można natomiast zastosować technikę, którą nazwałem Data
 
 DQDD ma zastosowanie wtedy, kiedy procesujemy dane ze źródła do miejsca docelowego. Czyli praktycznie zawsze. Zwracając szczególną 
 uwagę na transformacje oraz złączenia z innymi tabelami podczas procesowania danych, możemy spodziewać się kilku błędów jakie
-mogą zdażyć się podczas programowania takiego przepływu. Może nam zabraknąć warunku złączenia lub może pojawić się warunek nadmiarowy powodując nadmiarową filtrację.
+mogą zdarzyć się podczas programowania takiego przepływu. Może nam zabraknąć warunku złączenia lub może pojawić się warunek nadmiarowy powodując nadmiarową filtrację.
 Możemy zduplikować dane, bądź też wręcz wytworzyć iloczyn kartezjański. Powodów tego może być sporo, zaczynąc od ludzkiego błędu literówki, skopiowanie aliasu tabeli
 z lewej i prawej strony warunku złączenia dający zawsze warunek prawdziwy, przez błąd logiczny podczas formułowania warunków złączeń, kończąc na defekcie w danych, a lista i tak nie jest pełna.  
 
