@@ -47,15 +47,15 @@ z lewej i prawej strony warunku złączenia dający zawsze warunek prawdziwy, pr
 
 Istotnym wymogiem do zastosowania metodyki DQDD jest możliwość szybkiego załadowania danych ze źródła do tabeli docelowej.
 Dodatkowe skrócenie pętli sprzężenia zwrotnego, gwarantującej nam natychmiastową odpowiedź czy nasz proces jest poprawny czy nie, może zapewnić wytworzenie odpowiedniego
-zestawu danych testowych. Przygotowanie minimalnego zestawu danych testujących wszystkie możliwe przypadki zapewnia minimalny czas przetwarzania, a dodatkowo zapewnia 100% pokrycie
-przypadkami testowymi (analogia do pokrycia kodu). Nawet biorąc dane produkcyjne, nigdy nie mamy pewności, czy pojawią się wszystkie skrajne sytuacje. Dodatkowo przetwarzanie pełnych danych jest zawsze bardziej czasochłonne i trudniejsze 
-w późniejszym debugowaniu, kiedy okazuje się, że wynik nie jest poprawny. Przygotowanie takiego zestawu danych ułatwia również testowanie warstwy UI. Gdy 
+zestawu danych testowych. Przygotowanie minimalnego zestawu danych testujących wszystkie możliwe przypadki zapewnia minimalny czas przetwarzania, a dodatkowo pozwala na 100% pokrycie
+przypadkami testowymi (analogia do pokrycia kodu). Nawet biorąc dane produkcyjne, nigdy nie mamy pewności, czy pojawią się wszystkie skrajne sytuacje. Przetwarzanie pełnych danych jest zawsze bardziej czasochłonne i trudniejsze 
+w późniejszym debugowaniu, kiedy okazuje się, że wynik nie jest poprawny. Przygotowanie odpowiedniego zestawu danych ułatwia również testowanie warstwy UI. Gdy 
 wystawiamy już API dla aplikacji frontendowej, to wiemy jakich wyników powinniśmy się spodziewać. W przypadku danych produkcyjnych spodziewana odpowiedź API jest inna
 za każdym razem, co utrudnia przetestowanie wszystkich metryk. 
 
 # Przykład
-Dalsza część tekstu zakłada, że naszym źródłem danych jest model wymiarowych (dimensional model - Kimball), a naszym celem jest stworzenie warstwy raportowej która będzie udostępniana
-do aplikacji frontendowej z predefiniowanymi raportami. Aby jak najszybciej zwracać takie dane, najlepiej jest je zagregować do wymaganej postaci, żeby żadna logika nie musiała być procesowana
+Dalsza część tekstu zakłada, że naszym źródłem danych jest model wymiarowy (dimensional model - Kimball), a naszym celem jest stworzenie warstwy raportowej, która będzie udostępniana
+do aplikacji frontendowej z predefiniowanymi raportami. Aby jak najszybciej zwracać takie dane, najlepiej jest je zagregować do postaci w jakiej będą prezentowane w UI, żeby żadna logika nie musiała być procesowana
 w czasie od kliknięcia przez użytkownika w aplikacji do czasu zwrócenia danych. Przetestujemy sobie stworzenie jednego takiego agregatu.
 Jako narzędzie do automatyzacji testów użyjemy FitNesse (http://docs.fitnesse.org/)
 
