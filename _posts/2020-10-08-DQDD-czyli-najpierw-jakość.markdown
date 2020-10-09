@@ -62,7 +62,7 @@ Jako narzędzie do automatyzacji testów użyjemy FitNesse (http://docs.fitnesse
 
 
 Model źródłowy:
-![Model źródłowy](/assets/images/dqdd/source_model.png)
+![Model źródłowy](/images/dqdd/source_model.png)
 
 
 W fakcie f_pharma_sales jest sprzedaż produktów w aptekach wyrażona w dollarach (sales_dollars). 
@@ -77,7 +77,7 @@ z zerową sprzedażą należy zwrócić 0.
 
 Tworzymy więc tabelę docelową r_states_prod_types
 
-![Model docelowy](/assets/images/dqdd/target_model.png)
+![Model docelowy](/images/dqdd/target_model.png)
 
 # Przypadki testowe
 
@@ -93,15 +93,15 @@ Aby szybko uzyskać odpowiedź, czy nasz agregat spełnia wszystkie wymagania, z
 Do takich wymagań tworzymy sobie również zestaw danych testowych, które pozwolą nam przetestować każdy możliwy przypadek:
 
 ### d_date 
-![dane d_date](/assets/images/dqdd/d_date.png)
+![dane d_date](/images/dqdd/d_date.png)
 Wstawiamy tylko dwie daty, jedna wpadająca w nasz rolujący kwartał, druga nie.
 
 ### d_product 
-![dane d_product](/assets/images/dqdd/d_product.png)
+![dane d_product](/images/dqdd/d_product.png)
 Mamy 3 typy poruktów: płyny, tabletki, spray.
 
 ### d_shop
-![dane d_shop](/assets/images/dqdd/d_shop.png)
+![dane d_shop](/images/dqdd/d_shop.png)
 Dwa sklepy w różnych stanach.
 
 
@@ -109,8 +109,8 @@ Dwa sklepy w różnych stanach.
 Do f_pharma_sales wstawiamy dane tak, aby uzyskać wszystkie przypadki sprzedaży dodatniej i negatywnej w każdym typie produktu oraz stanie. 
 Dodatkowo dodajemy testową wartość z poza naszej wymaganej daty, aby sprawdzić czy tylko kwartalne dane są załadowane. 
 
-![dane f_pharma_sales](/assets/images/dqdd/f_pharma_sales.png )
-![dane f_pharma_sales przetłumaczone](/assets/images/dqdd/f_pharma_sales_trans.png )
+![dane f_pharma_sales](/images/dqdd/f_pharma_sales.png )
+![dane f_pharma_sales przetłumaczone](/images/dqdd/f_pharma_sales_trans.png )
 
 # komora maszyny testującej jest pusta...
 Przechodząc od słów do czynów, zaczynamy pracę z naszym zapytaniem ładującym dane oraz testami. 
@@ -130,10 +130,10 @@ Zapytanie na danych docelowych:
       FROM r_states_prod_types;
 ```	  
 Definicja testu w FitNesse:
-![definicja w fitness](/assets/images/dqdd/1st_test_def.png)
+![definicja w fitness](/images/dqdd/1st_test_def.png)
 
 Pierwsze uruchomienie:
-![pierwszy test bez kodu](/assets/images/dqdd/1st_test_fail.png)
+![pierwszy test bez kodu](/images/dqdd/1st_test_fail.png)
 Oczywiście test oblany, gdyż w tabelce docelowej nie ma danych. 
 
 Tworzymy najmniejszy możliwy kod ładujący tabelę docelową, aby spełnić ten test. 
@@ -157,7 +157,7 @@ Uruchamiam procedurę:
 EXEC load_r_states_prod_types;
 ```
 uruchamiam test:
-![pierwszy zielony test](/assets/images/dqdd/1st_test_pass.png)
+![pierwszy zielony test](/images/dqdd/1st_test_pass.png)
 
 BRAWO!
 
@@ -173,7 +173,7 @@ SELECT COUNT(*)
 ```		
 Odpalamy test w fitnesse:
 2nd test pass.png
-![drugi zielony test](/assets/images/dqdd/2nd_test_pass.png)
+![drugi zielony test](/images/dqdd/2nd_test_pass.png)
 
 ### test#3
 Kolejny test to sprawdzenie, czy suma całkowita w tabeli docelowej jest równa sumie kwartalnej w tabeli źródłowej. Test na tabeli źródłowej:
@@ -189,7 +189,7 @@ Test na tabeli docelowej:
 SELECT SUM(sales_dollars) AS sales_dollars
   FROM r_states_prod_types;
 ```
-![trzeci czerwony test](/assets/images/dqdd/3rd_test_fail.png)
+![trzeci czerwony test](/images/dqdd/3rd_test_fail.png)
 
 Dopisujemy minimalną ilość kodu (a w zasadzie modyfikujemy nasze zapytanie), aby spełnić wymaganie:
 ```
@@ -208,7 +208,7 @@ LEFT OUTER JOIN f_pharma_sales fph
               , shp.state; 
 ```			  
 Odpalamy test:
-![trzeci czerwony test#2](/assets/images/dqdd/3rd_test_second_fail.png)
+![trzeci czerwony test#2](/images/dqdd/3rd_test_second_fail.png)
 
 I okazuje się, że testu nie zaliczyliśmy, a otrzymana wartość jest bardzo mocno na minusie. 
 Mając teraz w głowie nasze przygotowane dane testowe wiemy, że z jakiegoś powodu największa ujemna wartość która nie jest w naszym kwartale, została zawarta w obliczeniach.
@@ -222,7 +222,7 @@ Szybka poprawka:
  ON dat.date_id = fph.date_id
 ```
 Przeładowanie danych i test jest zaliczony:
-![trzeci zielony test](/assets/images/dqdd/3rd_test_pass.png)
+![trzeci zielony test](/images/dqdd/3rd_test_pass.png)
 
 Ostatnie dwa testy DQ do spełnienia zostawiam jako ćwiczenie dla chętnych. 
 
@@ -230,7 +230,7 @@ Ostatnie dwa testy DQ do spełnienia zostawiam jako ćwiczenie dla chętnych.
 Okazało się, że nawet dla tak prostego przypadku, sumiennie pisząc test przed napisaniem kodu mamy 
 natychmiastową odpowiedź, czy nasz kod jest poprawny czy nie. Za każdym razem również należy uruchamiać wszystkie testy dla 
 tworzonej części tak, aby mieć pewność, że nie zepsuło się poprzednich kroków:
-![all good](/assets/images/dqdd/all_tests.png)
+![all good](/images/dqdd/all_tests.png)
 
 Część z tych testów może być również później wykorzystana jako testy akceptacyjne. Dodatkowo możemy ich użyć jako sprawdzenia DQ już na samych danych produkcyjnych,
 kiedy przed wypchnięciem danych do aplikacji klienta mamy jeszcze czas na finale testy.
