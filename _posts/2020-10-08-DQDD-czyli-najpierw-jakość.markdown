@@ -8,32 +8,33 @@ tags: [DQDD,TDD,Quality,Testing]
 ---
 
 Testowanie jest piękne. Daje natychmiastową odpowiedź, czy nasze działania są 
-poprawne. Dobrze napisane testy sprawdzają wszystko od A do Z, od góry do dółu,
+poprawne. Dobrze napisane testy sprawdzają wszystko od A do Z, od góry do dołu,
 bez mozolnego przeglądania wyników naszych funkcji czy procedur i liczenia na
 łut szczęścia, że akurat trafimy na wadliwy przypadek. 
 
 # Wszystko ma swoją cenę
 Koszt napisania zautomatyzowanych testów jest porównywalny do jednorazowego stworzenia i wykonania testów manualnych. Tyle, że część wykonawczą testów manualnych realizujemy
-w czasie projektu przynajmniej kilkukrotnie. Zysk z automatomatyzacji testów jest więc ogromny, tym większy, im dłuższy jest projekt. 
-Pozwala też skrócić pętle sprzężenia zwrotnego od developmentu do wykrycia błędów i ich poprawy. Ułatwia to pracę, gdyż nie trzeba po tygodniu, kiedy zrobiło się
+w czasie projektu przynajmniej kilkukrotnie. Zysk z automatyzacji testów jest więc ogromny, tym większy, im dłuższy jest projekt. 
+Pozwala też cykl developmentu, wykrycia błędów i ich poprawy. Ułatwia to pracę, gdyż nie trzeba po tygodniu, kiedy zrobiło się
 już multum innych rzeczy, wracać do zadania o którym już się zapomniało, odświeżać sobie wiedzę i fixować nieszczęsny kod. 
 Kolejną rzeczą jest poczucie bezpieczeństwa i pewności siebie programisty, który robiąc zmiany w kodzie, tym bardziej w kodzie który widzi pierwszy raz na oczy
 lub wrócił do niego po długim czasie, ma szybką odpowiedź, że nic nie zepsuł i dalej wszystko jest ok.
 # Akcja reakcja 
-Ważnym aspektem testowania jest krótka pętla sprzężenia zwrotnego. Im krótsza, tym lepsza. Tety powinny móc wykonać się w max 5 minut.
+Ważnym aspektem testowania jest czas ich wykonania. Im krócej testy się wykonują, tym lepiej.
 Pozwala to od razu uzyskać informację, czy nasze zadanie jest wykonane dobrze i wprowadzić ewentualne poprawki jeszcze zanim przekażemy je dalej,
-a my nie zmienimy jeszcze kontekst w głowie na inne zadanie. 
+a my nie zmienimy jeszcze kontekst w głowie na inne zadanie. Natomiast zbyt długo trwające testy na tym etapie mogą spowodować, że 
+się do nich zniechęcamy i istnieje duże prawdopodobieństwo, że zostaną zarzucone. 
  
 # Skąd pomysł?
 W klasycznym, obiektowym programowaniu najlepszą praktyką testowania własnego kodu jest Test Driven Development (TDD). Zakłada pracę w bardzo krótkich cyklach, 
 rzędu 1-2 minuty, w których to postępujemy w 3 krokach:
-1. piszemy test którego nasz program nie zalicza (np. sprawdza czy da się wywołać konstruktor klasy)
-2. piszemy minimalną ilość kodu do zaliczenia testu (np. definiujemy samą klasę, bez żadnej logiki, tylko pusty konstruktor)
-3. uruchamiamy test który powinien przejść.
+1. piszemy test którego nasz program nie zalicza (np. sprawdza czy da się wywołać konstruktor klasy) (faza red)
+2. piszemy minimalną ilość kodu do zaliczenia testu (np. definiujemy samą klasę, bez żadnej logiki, tylko pusty konstruktor) (faza green)
+3. refactorujemy nasz kod (faza refactor)
 
-TDD zakłada, że w danym momencie tylko jeden test może być niezaliczony. Pracujemy więc w cyklu:
-test -> kod -> zaliczenie ->
-kolejny test -> kod -> zaliczenie -> itd...
+TDD zakłada, że w danym momencie tylko jeden test może być niezaliczony, więc nie możemy przejść do kolejnego testu, a i co za tym idzie kolejnej części kodu, dopóki nie
+zaliczmy aktualnego testu.
+
 
 # DWH i BI
 W świecie hurtowni danych oraz systemów BI, szczególnie po stronie bazy danych kiedy piszemy customowe agregacje danych, trudno jest jeden do jednego 
@@ -46,7 +47,7 @@ Możemy zduplikować dane, bądź też wręcz wytworzyć iloczyn kartezjański. 
 z lewej i prawej strony warunku złączenia dający zawsze warunek prawdziwy, przez błąd logiczny podczas formułowania warunków złączeń, kończąc na defekcie w danych, a lista i tak nie jest pełna.  
 
 Istotnym wymogiem do zastosowania metodyki DQDD jest możliwość szybkiego załadowania danych ze źródła do tabeli docelowej.
-Dodatkowe skrócenie pętli sprzężenia zwrotnego, gwarantującej nam natychmiastową odpowiedź czy nasz proces jest poprawny czy nie, może zapewnić wytworzenie odpowiedniego
+Dodatkowe skrócenie czasu od napisania kodu do informacji czy jest poprawny, może zapewnić wytworzenie odpowiedniego
 zestawu danych testowych. Przygotowanie minimalnego zestawu danych testujących wszystkie możliwe przypadki zapewnia minimalny czas przetwarzania, a dodatkowo pozwala na 100% pokrycie
 przypadkami testowymi (analogia do pokrycia kodu). Nawet biorąc dane produkcyjne, nigdy nie mamy pewności, czy pojawią się wszystkie skrajne sytuacje. Przetwarzanie pełnych danych jest zawsze bardziej czasochłonne i trudniejsze 
 w późniejszym debugowaniu, kiedy okazuje się, że wynik nie jest poprawny. Przygotowanie odpowiedniego zestawu danych ułatwia również testowanie warstwy UI. Gdy 
@@ -66,7 +67,7 @@ Model źródłowy:
 
 W fakcie f_pharma_sales jest sprzedaż produktów w aptekach wyrażona w dollarach (sales_dollars). 
 Z faktu jest odniesienie do wymiaru czasowego d_date, w którym są dodatkowe indykatory czy dana data należy
-do aktualnego miesiąca (curr_mth_ind), czy należy do aktualnego rolującego kwartału (roll_qtr_ind) oraz czy należy do danego roku (ytd_ind). 
+do aktualnego miesiąca (curr_mth_ind), czy należy do ostatnich 3 miesięcy (roll_qtr_ind) oraz czy należy do danego roku (ytd_ind). 
 Wymiar produktowy d_product daje informacje o producencie, marce oraz typie. 
 Wymiar sklepu (czy apteki) d_shop zawiera dane geograficzne gdzie dokonano sprzedaży. 
 
@@ -135,7 +136,7 @@ Pierwsze uruchomienie:
 ![pierwszy test bez kodu](/assets/images/dqdd/1st_test_fail.png)
 Oczywiście test oblany, gdyż w tabelce docelowej nie ma danych. 
 
-Tworzymy najmniejszy możliwy kod ładujący tabelę docelową, aby spełnić ten test. Obudowuję insert w procedurę, dla łatwości wykonania
+Tworzymy najmniejszy możliwy kod ładujący tabelę docelową, aby spełnić ten test. 
 ```
 CREATE OR REPLACE PROCEDURE load_r_states_prod_types IS
 
