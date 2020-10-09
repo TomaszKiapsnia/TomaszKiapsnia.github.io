@@ -42,9 +42,9 @@ przełożyć TDD. Można natomiast zastosować technikę, którą nazwałem Data
 
 DQDD ma zastosowanie wtedy, kiedy procesujemy dane ze źródła do miejsca docelowego. Czyli praktycznie zawsze. Zwracając szczególną 
 uwagę na transformacje oraz złączenia z innymi tabelami podczas procesowania danych, możemy spodziewać się kilku błędów jakie
-mogą zdarzyć się podczas programowania takiego przepływu. Może nam zabraknąć warunku złączenia lub może pojawić się warunek nadmiarowy powodując nadmiarową filtrację.
-Możemy zduplikować dane, bądź też wręcz wytworzyć iloczyn kartezjański. Powodów tego może być sporo, zaczynąc od ludzkiego błędu literówki, skopiowanie aliasu tabeli
-z lewej i prawej strony warunku złączenia dający zawsze warunek prawdziwy, przez błąd logiczny podczas formułowania warunków złączeń, kończąc na defekcie w danych, a lista i tak nie jest pełna.  
+mogą zdarzyć się podczas programowania takiego przepływu. Może nam zabraknąć warunku złączenia lub może pojawić się warunek nadmiarowy powodując dodatkową filtrację.
+Możemy zduplikować dane, bądź też wręcz wytworzyć iloczyn kartezjański. Powodów tego może być sporo. Każdemu może zdarzyć się literówka czy przeoczenie jak np. skopiowanie aliasu tabeli
+z lewej i prawej strony warunku złączenia, dając zawsze warunek prawdziwy. Możliwe są błędy logiczne podczas formułowania warunków złączeń czy defekty w samych danych.  
 
 Istotnym wymogiem do zastosowania metodyki DQDD jest możliwość szybkiego załadowania danych ze źródła do tabeli docelowej.
 Dodatkowe skrócenie czasu od napisania kodu do informacji czy jest poprawny, może zapewnić wytworzenie odpowiedniego
