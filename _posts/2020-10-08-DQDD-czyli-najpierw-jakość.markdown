@@ -37,7 +37,7 @@ zaliczmy aktualnego testu.
 
 
 # DWH i BI
-W świecie hurtowni danych oraz systemów BI, szczególnie po stronie bazy danych kiedy piszemy customowe agregacje danych, trudno jest jeden do jednego 
+W świecie hurtowni danych oraz systemów BI, szczególnie po stronie bazy danych, kiedy piszemy customowe agregacje danych, trudno jest jeden do jednego 
 przełożyć TDD. Można natomiast zastosować technikę, którą nazwałem Data Quality Driven Development (DQDD). 
 
 DQDD ma zastosowanie wtedy, kiedy procesujemy dane ze źródła do miejsca docelowego. Czyli praktycznie zawsze. Zwracając szczególną 
