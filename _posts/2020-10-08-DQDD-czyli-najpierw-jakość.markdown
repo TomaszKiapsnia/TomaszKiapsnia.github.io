@@ -15,7 +15,7 @@ bez mozolnego przeglądania wyników naszych funkcji czy procedur i liczenia na
 # Wszystko ma swoją cenę
 Koszt napisania zautomatyzowanych testów jest porównywalny do jednorazowego stworzenia i wykonania testów manualnych. Tyle, że część wykonawczą testów manualnych realizujemy
 w czasie projektu przynajmniej kilkukrotnie. Zysk z automatyzacji testów jest więc ogromny, tym większy, im dłuższy jest projekt. 
-Pozwala też cykl developmentu, wykrycia błędów i ich poprawy. Ułatwia to pracę, gdyż nie trzeba po tygodniu, kiedy zrobiło się
+Pozwala też skrócić cykl developmentu, wykrycia błędów i ich poprawy. Ułatwia to pracę, gdyż nie trzeba po tygodniu, kiedy zrobiło się
 już multum innych rzeczy, wracać do zadania o którym już się zapomniało, odświeżać sobie wiedzę i fixować nieszczęsny kod. 
 Kolejną rzeczą jest poczucie bezpieczeństwa i pewności siebie programisty, który robiąc zmiany w kodzie, tym bardziej w kodzie który widzi pierwszy raz na oczy
 lub wrócił do niego po długim czasie, ma szybką odpowiedź, że nic nie zepsuł i dalej wszystko jest ok.
