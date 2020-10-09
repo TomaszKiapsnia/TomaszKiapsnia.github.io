@@ -22,7 +22,7 @@ lub wrócił do niego po długim czasie, ma szybką odpowiedź, że nic nie zeps
 # Akcja reakcja 
 Ważnym aspektem testowania jest czas ich wykonania. Im krócej testy się wykonują, tym lepiej.
 Pozwala to od razu uzyskać informację, czy nasze zadanie jest wykonane dobrze i wprowadzić ewentualne poprawki jeszcze zanim przekażemy je dalej,
-a my nie zmienimy jeszcze kontekst w głowie na inne zadanie. Natomiast zbyt długo trwające testy na tym etapie mogą spowodować, że 
+a my nie zmienimy jeszcze kontekstu w głowie na inne zadanie. Natomiast zbyt długo trwające testy na tym etapie mogą spowodować, że 
 się do nich zniechęcamy i istnieje duże prawdopodobieństwo, że zostaną zarzucone. 
  
 # Skąd pomysł?
