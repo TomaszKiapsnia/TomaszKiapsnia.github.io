@@ -159,7 +159,7 @@ Execution of test:
 Hurray!
 
 ### test#2
-We are writing second test, which meets second requirement. It is checking DQ, however it will be already passed, as in current state
+We are writing a second test, which meets second requirement. It is checking DQ, but it will be already passed, as in current state
 we are not generating duplicates. However, it will be very helpful when we add more joins, to check after each new portion of code if we are still not duplicate data.
 Following query should return 0:
 ```
