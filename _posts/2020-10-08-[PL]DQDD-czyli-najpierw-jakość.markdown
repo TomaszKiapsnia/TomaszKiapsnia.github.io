@@ -235,7 +235,7 @@ Ostatnie dwa testy DQ do spełnienia zostawiam jako ćwiczenie dla chętnych.
 # Zawsze testować!
 Okazało się, że nawet dla tak prostego przypadku, sumiennie pisząc test przed napisaniem kodu mamy 
 natychmiastową odpowiedź, czy nasz kod jest poprawny czy nie. Za każdym razem również należy uruchamiać wszystkie testy dla 
-tworzonej części tak, aby mieć pewność, że nie zepsuło się poprzednich kroków.
+tworzonej części. Dzięki temu mamy pewność, że nie zepsuliśmy się poprzednich kroków.
 
 Część z tych testów może być również później wykorzystana jako testy akceptacyjne. Dodatkowo możemy ich użyć jako sprawdzenia DQ już na samych danych produkcyjnych,
 kiedy przed wypchnięciem danych do aplikacji klienta mamy jeszcze czas na finale testy.

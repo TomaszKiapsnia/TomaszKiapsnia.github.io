@@ -7,7 +7,7 @@ categories: [DQDD,TDD,Quality,Testing]
 tags: [DQDD,TDD,Quality,Testing]
 ---
 
-Testing is beautiful. It gives immediate answer if our actions are valid.
+Testing is beautiful. It gives immediate answer whether our actions are valid.
 Correctly written tests check everything from A to Z, from the beginning to the end.
 It prevents from time-consuming and boring looking into results and hoping for a luck to hit the faulty case.
 
@@ -22,11 +22,11 @@ after changes is still doing what it should do.
 
 # Action reaction
 Important thing is execution time of tests. The shorter, the better.
-It gives us right away information if our task is done properly and put fixes if not before we pass a task to QAs and switch thread in our mind to different task.
-From the other hand long execution time could be demotivating and there is a risk to resign making tests at all. 
+It gives us right away information whether our task is done properly and put fixes before we pass a task to QAs and switch thread in our mind to a different task.
+From the other hand long execution time could be demotivating and there is a risk to resign from making tests at all. 
  
 # Inspiration?
-In classic, object-oriented programming, one of the best, if not the best, methods to test your own code is Test Driven Development (TDD). Its principals say, that
+In classic, object-oriented programming one of the best, if not the best, methods to test your own code is Test Driven Development (TDD). Its principals say, that
 work should be make of very short cycles, like 1-2 minutes, during which we are doing 3 steps:
 
 
@@ -38,7 +38,7 @@ TDD assumes, that in each moment only 1 test can be red (fail), so we can't cont
 
 
 # DWH i BI
-In the world of data warehouses and BI system, especially on database side, when we are writing custom data aggregations, it's difficult to use TDD in exactly the same shape.
+In the world of data warehouses and BI system, especially on database side, when we are writing custom data aggregations, it's difficult to use TDD in exactly the same shape as in OOP.
 However, we can use a technique, which I've called Data Quality Driven Development (DQDD).
 
 DQDD can be used when we are processing data from a source to destination. So always actually. Looking at transformation of data and joins to other tables during processing, we can 
@@ -227,17 +227,17 @@ Additionally, we are running all tests to check if we didn't break anything for 
 Last two DQ requirements to check I'm leaving for willing reads.
 
 # Test always!
-Even for this simple case, by writing good tests before code we have immediate answer, if our code is proper or not.
-Each time it's important to run all tests for current part of code, to have confirmation that previous steps are still ok.
+Even for this simple case, by writing good tests before code, we have immediate answer, whether our code is proper or not.
+Each time it's important to run all tests for current part of code. By that we have confirmation that previous steps are still ok.
 
 Some of these tests can be used later as acceptance tests. Additionally, we can use them to check DQ on productional data, when before pushing them 
 to client application we have time for final tests.
 
 Using DQDD gives a huge gain in comparison to extreme case of not testing at all or manual testing.
-And we have 3 big profits. First: it checks our code immediately and reduces time to fix bugs in later phases. Second: by writing tests, 
+We have 3 big profits. First: it checks our code immediately and reduces time to fix bugs in later phases. Second: we have tests, 
 which can be used in productional phase as DQ tests. Third: it reduces time of multiple rounds of manual tests.
-It's very important to remember, that creation of tests and their run should be quick, easy and pleasant. We can't wait for hours to get answer, because
-our tests should test quite small changes. Small test data set, which cover all tests cases, can help. Easy in setup automation tool, like FitNesse, can help. 
+It's very important to remember, that creation of tests and their run should be quick, easy and pleasant. We can't wait for hours to get an answer, because
+our tests should test quite small changes. Minimal test data set, which cover all tests cases, can help. Easy to setup automation tool, like FitNesse, can help. 
 By testing, we can help.
 
 I recommend. I encourage. I'm sending my best. 
