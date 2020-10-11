@@ -8,16 +8,16 @@ tags: [DQDD,TDD,Quality,Testing]
 ---
 
 Testing is beautiful. It gives immediate answer if our actions are valid.
-Correctly written tests check everything from A to Z, from the beginning  to the end,
-without time consuming and boring looking to results of our code and hoping for a luck to hit the faulty case.
+Correctly written tests check everything from A to Z, from the beginning to the end.
+It prevents from time-consuming and boring looking to results of code and hoping for a luck to hit the faulty case.
 
 # Everything costs
-Cost of automated tests creation is more or less the same as creation and one time run of manual tests.
+A cost of automated tests creation is more or less the same as creation and one time run of manual tests.
 However, manual tests are going to be run at least few times during the project.
 Gain from automated tests is huge, and it is raising even more, when project is going longer. 
-This kind of tests let us make a cycle of development, finding a bug and fixing shorter. It makes our work easier, as we don't have to back to this task in a week, when in the meantime
-we've done lots of other things, and we've already forgotten about details. We need to refresh our mind and fix fateful code.
-Next thing is confidence and feeling safe of the programmer who is making changes in code which he or she sees for the first time or get back to it after long time. Tests give a fast respond, that code
+This kind of tests let us make a cycle of development, finding a bug and fixing shorter. It makes our work easier, as we don't have to get back to this task in a future, when in the meantime
+we've done lots of other things, and we've already forgotten about the details. We need to refresh our mind, and fix fateful code.
+Next thing is confidence and sens of security of the programmer, when doing changes in code which he or she sees for the first time or after long time. Tests give a fast respond, that code
 after changes is still doing what it should do. 
 
 # Action reaction
@@ -49,14 +49,14 @@ which gives always true condition. There is possibility to add not appropriate l
 To detect these errors, we can create data quality checks, which usually taking place in further phases of project, however we can do it during implementation, to get fast feedback, if we are properly setting up our dataflow. 
 
 Important thing during using DQDD is an ability to quick load data from source to destination. To additionally reduce time from writing a code to get feedback from tests, we can create 
-proper test data set. Creating minimal data set which can cover all test cases gives us minimal processing time plus allow us to cover 100% test cases (analogy to code coverage). 
-We can't rely on production data, because there could not be all boundary cases. It also causes long time of processing and it is difficult to debug productional data 
-in case of any failure. Preparing test data set also can be very helpful when testing UI layer. When we are ready to serve an API to frontend application, we exactly know what output is expected. In case of productional data
+proper test data set. Creating minimal data set which can cover all test cases gives us minimal processing time. It also allows us to cover 100% test cases (analogy to code coverage). 
+We can't rely on production data, because there could not be all boundary cases. Productional data also causes long time of processing and it is difficult to debug in case of any failure. 
+Preparing test data set also can be very helpful when testing UI layer. When we are ready to serve an API to frontend application, we exactly know what output is expected. In case of productional data
 expected results in API is different each time, which makes testing harder.
 
 # Example
 In next part of this article I'm assuming, that or source is dimensional model (Kimball), while our goal is to create reporting layer for frontend application with predefined reports.
-To serve this kind of data as fast as possible, the best option is to aggregate data to the shape, in which they will be presented in UI, to not calculate anything between click in UI and serving the data.
+To serve this kind of data as fast as possible, the best option is to aggregate data to the shape in which they will be presented in UI. By that there is no calculation between click in UI and serving the data.
 We are going to test this kind of aggregate creation.
 To automate tests we will use FitNesse (http://docs.fitnesse.org/)
 
@@ -233,7 +233,7 @@ Each time it's important to run all tests for current part of code, to have conf
 Some of these tests can be used later as acceptance tests. Additionally, we can use them to check DQ on productional data, when before pushing them 
 to client application we have time for final tests.
 
-Using DQDD gives huge gain in comparison to extreme case of not testing at all or manual testing.
+Using DQDD gives a huge gain in comparison to extreme case of not testing at all or manual testing.
 And we have 3 big profits. First: it checks our code immediately and reduces time to fix bugs in later phases. Second: by writing tests, 
 which can be used in productional phase as DQ tests. Third: it reduces time of multiple rounds of manual tests.
 It's very important to remember, that creation of tests and their run should be quick, easy and pleasant. We can't wait for hours to get answer, because

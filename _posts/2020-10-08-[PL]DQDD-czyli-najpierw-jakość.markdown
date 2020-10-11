@@ -8,9 +8,9 @@ tags: [DQDD,TDD,Quality,Testing]
 ---
 
 Testowanie jest piękne. Daje natychmiastową odpowiedź, czy nasze działania są 
-poprawne. Dobrze napisane testy sprawdzają wszystko od A do Z, od góry do dołu,
-bez mozolnego przeglądania wyników naszych funkcji czy procedur i liczenia na
-łut szczęścia, że akurat trafimy na wadliwy przypadek. 
+poprawne. Dobrze napisane testy sprawdzają wszystko od A do Z, od góry do dołu.
+Chronią przed mozolnym przeglądaniem wyników funkcji czy procedur i liczenia na
+łut szczęścia, że akurat znajdzie się wadliwy przypadek. 
 
 # Wszystko ma swoją cenę
 Koszt napisania zautomatyzowanych testów jest porównywalny do jednorazowego stworzenia i wykonania testów manualnych. Tyle, że część wykonawczą testów manualnych realizujemy
@@ -59,7 +59,7 @@ za każdym razem, co utrudnia przetestowanie wszystkich metryk.
 
 # Przykład
 Dalsza część tekstu zakłada, że naszym źródłem danych jest model wymiarowy (dimensional model - Kimball), a naszym celem jest stworzenie warstwy raportowej, która będzie udostępniana
-do aplikacji frontendowej z predefiniowanymi raportami. Aby jak najszybciej zwracać takie dane, najlepiej jest je zagregować do postaci w jakiej będą prezentowane w UI, żeby żadna logika nie musiała być procesowana
+do aplikacji frontendowej z predefiniowanymi raportami. Aby jak najszybciej zwracać takie dane, najlepiej jest je zagregować do postaci w jakiej będą prezentowane w UI. W takim przypadku żadna logika nie musi być procesowana
 w czasie od kliknięcia przez użytkownika w aplikacji do czasu zwrócenia danych. Przetestujemy sobie stworzenie jednego takiego agregatu.
 Jako narzędzie do automatyzacji testów użyjemy FitNesse (http://docs.fitnesse.org/)
 
