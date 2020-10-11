@@ -55,7 +55,7 @@ Preparing test data set also can be very helpful when testing UI layer. When we 
 expected results in API is different each time, which makes testing harder.
 
 # Example
-In next part of this article I'm assuming, that or source is dimensional model (Kimball), while our goal is to create reporting layer for frontend application with predefined reports.
+In next part of this article I'm assuming, that or source is dimensional model (Kimball). Our goal is to create reporting layer for frontend application with predefined reports.
 To serve this kind of data as fast as possible, the best option is to aggregate data to the shape in which they will be presented in UI. By that there is no calculation between click in UI and serving the data.
 We are going to test this kind of aggregate creation.
 To automate tests we will use FitNesse (http://docs.fitnesse.org/)
@@ -220,7 +220,7 @@ test run:
 ![third red test#2](/images/dqdd/3rd_test_second_fail.png)
 
 And it failed with quite big negative value.
-Keeping in mind our test data set, we know, that for some reason, the biggest negative value, which is not in our last 3 months, was included to sum.
+Having in mind our test data set, we can easily figure out, that the biggest negative value, which is not in our last 3 months, was included to sum.
 Closer look to our code, and we can see aliasing error in condition to join (probably because of copy and paste and not changing to the proper one):
 ```
      INNER JOIN d_date dat
@@ -242,7 +242,7 @@ Last two DQ requirements to check I'm leaving for willing reads.
 
 # Test always!
 Even for this simple case, by writing good tests before code, we have immediate answer, whether our code is proper or not.
-Each time it's important to run all tests for current part of code. By that we have confirmation that previous steps are still ok.
+It's important to run all created tests for current part of code. By that we have confirmation that previous steps are still ok.
 
 Some of these tests can be used later as acceptance tests. Additionally, we can use them to check DQ on productional data, when before pushing them 
 to client application we have time for final tests.
