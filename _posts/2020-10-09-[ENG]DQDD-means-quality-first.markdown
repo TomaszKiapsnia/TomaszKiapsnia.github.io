@@ -62,6 +62,7 @@ To automate tests we will use FitNesse (http://docs.fitnesse.org/)
 
 
 Source data model:
+
 ![Source model](/images/dqdd/source_model.png)
 
 In fact table f_pharma_sales there are sales of products in pharmacies in dollars (sales_dollars).
@@ -92,14 +93,17 @@ Creation of test data set, to let test each possible case:
 
 ### d_date 
 ![data in d_date](/images/dqdd/d_date.png)
+
 Insert only two dates, one in rolling quarter, second out of it.
 
 ### d_product 
 ![data in d_product](/images/dqdd/d_product.png)
+
 3 types of products
 
 ### d_shop
 ![data in d_shop](/images/dqdd/d_shop.png)
+
 Two shops in different states
 
 
@@ -107,7 +111,8 @@ Two shops in different states
 Data in f_pharma_sales can handle all cases of positive and negative sales in each type of product in each state.
 
 ![data in f_pharma_sales](/images/dqdd/f_pharma_sales.png )
-![data in f_pharma_sales translated](/images/dqdd/f_pharma_sales_trans.png )
+
+![data in f_pharma_sales translated](/images/dqdd/f_Pharma_sales_trans.png )
 
 # Let's roll with tests! 
 Going from words to action, let's start to create insert statement and tests.
@@ -127,10 +132,13 @@ Query on target table:
       FROM r_states_prod_types;
 ```	  
 Test setup in FitNesse:
+
 ![fitness setup](/images/dqdd/1st_test_def.png)
 
 First run:
+
 ![First run without code](/images/dqdd/1st_test_fail.png)
+
 Of course the test failed, because there is no data in the target table.
 
 We are creating as little as possible code to load target table to pass the test.
@@ -154,6 +162,7 @@ Execution of procedure:
 EXEC load_r_states_prod_types;
 ```
 Execution of test:
+
 ![first green test](/images/dqdd/1st_test_pass.png)
 
 Hurray!
@@ -170,6 +179,7 @@ SELECT COUNT(*)
         HAVING COUNT(*) > 1)
 ```		
 Test run in FitNesse:
+
 ![second green test](/images/dqdd/2nd_test_pass.png)
 
 ### test#3
@@ -186,6 +196,7 @@ Test on target table:
 SELECT SUM(sales_dollars) AS sales_dollars
   FROM r_states_prod_types;
 ```
+
 ![third red test](/images/dqdd/3rd_test_fail.png)
 
 We are writing minimal amount of code (or actually modifying existing query), to pass a test:
@@ -205,6 +216,7 @@ LEFT OUTER JOIN f_pharma_sales fph
               , shp.state; 
 ```			  
 test run:
+
 ![third red test#2](/images/dqdd/3rd_test_second_fail.png)
 
 And it failed with quite big negative value.
@@ -219,9 +231,11 @@ Quick fix:
  ON dat.date_id = fph.date_id
 ```
 Reload of data and test run:
+
 ![trzeci zielony test](/images/dqdd/3rd_test_pass.png)
 
 Additionally, we are running all tests to check if we didn't break anything for previous requirements:
+
 ![all good](/images/dqdd/all_tests.png)
 
 Last two DQ requirements to check I'm leaving for willing reads.

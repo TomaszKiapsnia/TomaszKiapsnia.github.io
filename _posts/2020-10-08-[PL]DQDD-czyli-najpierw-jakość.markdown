@@ -97,14 +97,17 @@ Do takich wymagań tworzymy sobie również zestaw danych testowych, które pozw
 
 ### d_date 
 ![dane d_date](/images/dqdd/d_date.png)
+
 Wstawiamy tylko dwie daty, jedna wpadająca w nasz rolujący kwartał, druga nie.
 
 ### d_product 
 ![dane d_product](/images/dqdd/d_product.png)
+
 Mamy 3 typy poruktów: płyny, tabletki, spray.
 
 ### d_shop
 ![dane d_shop](/images/dqdd/d_shop.png)
+
 Dwa sklepy w różnych stanach.
 
 
@@ -113,7 +116,7 @@ Do f_pharma_sales wstawiamy dane tak, aby uzyskać wszystkie przypadki sprzedaż
 Dodatkowo dodajemy testową wartość z poza naszej wymaganej daty, aby sprawdzić czy tylko kwartalne dane są załadowane. 
 
 ![dane f_pharma_sales](/images/dqdd/f_pharma_sales.png )
-![dane f_pharma_sales przetłumaczone](/images/dqdd/f_pharma_sales_trans.png )
+![dane f_pharma_sales przetłumaczone](/images/dqdd/f_Pharma_sales_trans.png )
 
 # komora maszyny testującej jest pusta...
 Przechodząc od słów do czynów, zaczynamy pracę z naszym zapytaniem ładującym dane oraz testami. 
@@ -133,10 +136,13 @@ Zapytanie na danych docelowych:
       FROM r_states_prod_types;
 ```	  
 Definicja testu w FitNesse:
+
 ![definicja w fitness](/images/dqdd/1st_test_def.png)
 
 Pierwsze uruchomienie:
+
 ![pierwszy test bez kodu](/images/dqdd/1st_test_fail.png)
+
 Oczywiście test oblany, gdyż w tabelce docelowej nie ma danych. 
 
 Tworzymy najmniejszy możliwy kod ładujący tabelę docelową, aby spełnić ten test. 
@@ -160,6 +166,7 @@ Uruchamiam procedurę:
 EXEC load_r_states_prod_types;
 ```
 uruchamiam test:
+
 ![pierwszy zielony test](/images/dqdd/1st_test_pass.png)
 
 BRAWO!
@@ -176,6 +183,7 @@ SELECT COUNT(*)
         HAVING COUNT(*) > 1)
 ```		
 Odpalamy test w fitnesse:
+
 ![drugi zielony test](/images/dqdd/2nd_test_pass.png)
 
 ### test#3
@@ -211,6 +219,7 @@ LEFT OUTER JOIN f_pharma_sales fph
               , shp.state; 
 ```			  
 Odpalamy test:
+
 ![trzeci czerwony test#2](/images/dqdd/3rd_test_second_fail.png)
 
 I okazuje się, że testu nie zaliczyliśmy, a otrzymana wartość jest bardzo mocno na minusie. 
@@ -225,9 +234,11 @@ Szybka poprawka:
  ON dat.date_id = fph.date_id
 ```
 Przeładowanie danych i test jest zaliczony:
+
 ![trzeci zielony test](/images/dqdd/3rd_test_pass.png)
 
 Odpalamy też wszystkie poprzednie testy, aby sprawdzić, czy nie popsuliśmy niczego z poprzednich kroków:
+
 ![all good](/images/dqdd/all_tests.png)
 
 Ostatnie dwa testy DQ do spełnienia zostawiam jako ćwiczenie dla chętnych. 
