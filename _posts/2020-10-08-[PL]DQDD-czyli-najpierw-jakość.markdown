@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "DQDD czyli najpierw jakość"
+title:  "[PL]DQDD czyli najpierw jakość"
 date:   2020-10-08
 last_modified_at: 2020-10-08
 categories: [DQDD,TDD,Quality,Testing]
@@ -45,6 +45,9 @@ uwagę na transformacje oraz złączenia z innymi tabelami podczas procesowania 
 mogą zdarzyć się podczas programowania takiego przepływu. Może nam zabraknąć warunku złączenia lub może pojawić się warunek nadmiarowy powodując dodatkową filtrację.
 Możemy zduplikować dane, bądź też wręcz wytworzyć iloczyn kartezjański. Powodów tego może być sporo. Każdemu może zdarzyć się literówka czy przeoczenie jak np. skopiowanie aliasu tabeli
 z lewej i prawej strony warunku złączenia, dając zawsze warunek prawdziwy. Możliwe są błędy logiczne podczas formułowania warunków złączeń czy defekty w samych danych.  
+
+Aby znaleźć te błędy, sprawdzamy jakość naszych danych (data quality), co zwykle ma miejsce w późniejszych fazach. Możemy to robić jednak już na etapie implementacji, aby dostać jak najszybszą informację,
+czy nasz pipeline jest poprawny. 
 
 Istotnym wymogiem do zastosowania metodyki DQDD jest możliwość szybkiego załadowania danych ze źródła do tabeli docelowej.
 Dodatkowe skrócenie czasu od napisania kodu do informacji czy jest poprawny, może zapewnić wytworzenie odpowiedniego
@@ -163,7 +166,8 @@ BRAWO!
 
 ### test#2
 Piszemy drugi test, który jest w zasadzie uzupełnieniem pierwszego i nie będziemy musieli dodatkowo pisać kodu, natomiast dla pełności
-DQ sprawdzamy, czy nie generujemy duplikatów. Poniższe zapytanie powinno nam zwrócić wartość 0:
+DQ sprawdzamy, czy nie generujemy duplikatów. Będzie to bardzo pomocne przy kolejnych krokach, bo za każdym dopisanym krokiem szybko sprawdzimy, czy nadal 
+tych duplikatów nie ma. Poniższe zapytanie powinno nam zwrócić wartość 0:
 ```
 SELECT COUNT(*)
   FROM (SELECT COUNT(*)
@@ -172,7 +176,6 @@ SELECT COUNT(*)
         HAVING COUNT(*) > 1)
 ```		
 Odpalamy test w fitnesse:
-2nd test pass.png
 ![drugi zielony test](/images/dqdd/2nd_test_pass.png)
 
 ### test#3
@@ -224,13 +227,15 @@ Szybka poprawka:
 Przeładowanie danych i test jest zaliczony:
 ![trzeci zielony test](/images/dqdd/3rd_test_pass.png)
 
+Odpalamy też wszystkie poprzednie testy, aby sprawdzić, czy nie popsuliśmy niczego z poprzednich kroków:
+![all good](/images/dqdd/all_tests.png)
+
 Ostatnie dwa testy DQ do spełnienia zostawiam jako ćwiczenie dla chętnych. 
 
 # Zawsze testować!
 Okazało się, że nawet dla tak prostego przypadku, sumiennie pisząc test przed napisaniem kodu mamy 
 natychmiastową odpowiedź, czy nasz kod jest poprawny czy nie. Za każdym razem również należy uruchamiać wszystkie testy dla 
-tworzonej części tak, aby mieć pewność, że nie zepsuło się poprzednich kroków:
-![all good](/images/dqdd/all_tests.png)
+tworzonej części tak, aby mieć pewność, że nie zepsuło się poprzednich kroków.
 
 Część z tych testów może być również później wykorzystana jako testy akceptacyjne. Dodatkowo możemy ich użyć jako sprawdzenia DQ już na samych danych produkcyjnych,
 kiedy przed wypchnięciem danych do aplikacji klienta mamy jeszcze czas na finale testy.
@@ -239,8 +244,8 @@ Stosowanie DQDD daje ogromny zysk w porównaniu do skrajnego przypadku nietestow
 I to zysk potrójny. Raz: sprawdzając od razu swój kod, co redukuje czas na poprawianie błędów w późniejszych fazach. Dwa: pisząc od razu testy,
 które mogą być wykorzystane w fazie produkcyjnej jako finalne DQ. Trzy: redukując czas powtarzanych w kółko testów manualnych. 
 Należy jednak pamiętać o tym, aby stworzenie testów i ich wykonanie było szybkie, łatwie i przyjemne. Nie możemy czekać godzinami, aż testy dadzą
-nam odpowiedź, bo mają testować względnie małe zmiany. Pomogą w tym minimalne dane testowe, które spełnią każdy przypadek testowy, oraz względnie proste 
-narzędzie do uruchamiania testów, jak FitNesse. 
+nam odpowiedź, bo mają testować względnie małe zmiany. Minimalne dane testowe, które spełnią każdy przypadek testowy mogą pomóc. Względnie proste 
+narzędzie do uruchamiania testów, jak FitNesse, może pomóc. Testując, my możemy sobie pomóc. 
 Polecam, zachęcam, pozdrawiam. 
 
 Tomek
