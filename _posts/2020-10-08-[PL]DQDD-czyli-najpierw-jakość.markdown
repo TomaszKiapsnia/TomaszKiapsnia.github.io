@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[PL]DQDD czyli najpierw jakość"
+title:  "[PL] DQDD czyli najpierw jakość"
 date:   2020-10-08
 last_modified_at: 2020-10-08
 categories: [DQDD,TDD,Quality,Testing]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[ENG]DQDD means quality first"
+title:  "[ENG] DQDD means quality first"
 date:   2020-10-08
 last_modified_at: 2020-10-08
 categories: [DQDD,TDD,Quality,Testing]
