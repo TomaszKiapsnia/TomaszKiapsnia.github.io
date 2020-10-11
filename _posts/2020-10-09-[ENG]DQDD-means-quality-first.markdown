@@ -15,7 +15,7 @@ It prevents from time-consuming and boring looking into results and hoping for a
 A cost of automated tests creation is more or less the same as a creation and one time run of manual tests.
 However, manual tests are going to be run at least few times during a project.
 Gain from automated tests is huge, and it is raising even more, when a project is going longer. 
-This kind of tests let us make a cycle of development, finding a bug and fixing shorter. It makes our work easier, as we don't have to get back to this task in a future, when in the meantime
+This kind of tests let us make a cycle of development, finding a bug and fixing shorter. It makes our work easier, as we don't have to get back to this task in the future, when in the meantime
 we've done lots of other things, and we've already forgotten about the details. We need to refresh our mind, and fix fateful code.
 Next thing is confidence and sens of security of the programmer, when doing changes in code which he or she sees for the first time or after long time. Tests give a fast respond, that code
 after changes is still doing what it should do. 
