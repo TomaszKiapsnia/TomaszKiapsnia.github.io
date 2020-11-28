@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[[PL] Wersjonowanie wymiarów"
+title:  "[PL] Wersjonowanie wymiarów"
 date:   2020-11-27
 last_modified_at: 2020-11-27
 categories: [DWH,Dimensions,Versioning]
