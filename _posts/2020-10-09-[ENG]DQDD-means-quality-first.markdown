@@ -37,7 +37,7 @@ work should be make of very short cycles, like 1-2 minutes, during which we are 
 TDD assumes, that in each moment only 1 test can be red (fail), so we can't continue to next test or code, until we make the current test to be green (passed).
 
 
-# DWH i BI
+# DWH and BI
 In the world of data warehouses and BI system, especially on database side, when we are writing custom data aggregations, it's difficult to use TDD in exactly the same shape as in OOP.
 However, we can use a technique, which I've called Data Quality Driven Development (DQDD).
 
